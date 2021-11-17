@@ -292,3 +292,5 @@ function filtrarPorNombreCarta() {
         }
     });
 }
+
+//PREPARACIÓN DE PEDIDO
