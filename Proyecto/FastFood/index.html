@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>localCloud</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximun-scale=1.0, minimun-scale=1.0">
+  </head>
+
+  <body>
+    <header>
+      <section id="barraSuperior">
+        <div class="divlogo">
+          <img class="logo" src="./icons/logo.png" alt="Logo" />
+        </div>
+        <h1>Fast Food</h1>
+      </section>
+    </header>
+    <section id="login" class="content-login">
+      <form id="frm_login" name="frm_login" class="login">
+        <div >
+          <div class="login-header">
+            <h2>Login</h2>
+          </div>
+          <div class="login-body">
+            <div class="form-input">
+              <p>Usuario:</p>
+              <input
+                type="text"
+                name="us"
+                id="us"
+                placeholder="Usuario"
+                required
+              />
+            </div>
+            <div class="form-input">
+              <p>Clave:</p>
+              <input
+                type="password"
+                name="pw"
+                id="pw"
+                placeholder="Clave"
+                required
+              />
+            </div>
+            <p>
+              <button
+                type="submit"
+                name="ingresar"
+                id="ingresar"
+              >
+                Ingresar
+              </button>
+            </p>
+          </div>
+          <div class="form-footer">
+            <p>© 2021 Fast Food.</p>
+          </div>
+        </div>
+      </form>
+    </section>
+    <!--<script type="text/javascript" src="./js/general.js"></script>-->
+    <script src="./resources/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="./AJAX/controllerAJX.js"></script>
+    <!--<script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>-->
+  </body>
+</html>

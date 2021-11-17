@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FastFood</title>
+    <link rel="stylesheet" href="../css/sidemenu.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="body-expanded" onload="cargarUsuario();">
+    <div id="sidemenu" class="menu-expanded">
+        <!--HEADER-->
+        <div id="header">
+            <div id="title"><span>Menú</span></div>
+            <div id="menu-btn">
+                <div class="btn-hamburger"></div>
+                <div class="btn-hamburger"></div>
+                <div class="btn-hamburger"></div>
+            </div>
+        </div>
+        <!--PROFILE-->
+        <div id="profile">
+            <div id="photo"><img src="../icons/profilex200.png" alt=""></div>
+            <div id="name"><span>User</span></div>
+        </div>
+        <!--ITEMS-->
+        <div id="menu-items">
+            <div class="item">
+                <a href="#" onclick="listarCarta();">
+                    <div class="icon"><img src="../icons/carta-restaurante-2.png" alt=""></div>
+                    <div class="title">Carta</div>
+                </a>
+            </div>
+            <div class="item">
+                <a href="#" onclick="listarPersonas();">
+                    <div class="icon"><img src="../icons/clientes.png" alt=""></div>
+                    <div class="title">Personas</div>
+                </a>
+            </div>
+            <div class="item">
+                <a href="#" onclick="listarTipos();">
+                    <div class="icon"><img src="../icons/categorias.png" alt=""></div>
+                    <div class="title">Categorias</div>
+                </a>
+            </div>
+            <div class="item">
+                <a href="#" onclick="listarPedidos();">
+                    <div class="icon"><img src="../icons/pedido.png" alt=""></div>
+                    <div class="title">Pedidos</div>
+                </a>
+            </div>
+            <div class="item-separator">
+                <!--SEPARADOR-->
+            </div>
+            <div class="item">
+                <a href="#">
+                    <div class="icon"><img src="../icons/icono-login.png" alt=""></div>
+                    <div class="title">Usuarios</div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div id="main-container">
+        <div id="titulo">
+            FastFood
+        </div>
+        <div id="contenido">
+            <!--CONTENIDO-->
+            <form id="frm_pedido" name="frm_pedido">
+                <input type="hidden" value="1" id="idOp">
+                <input type="hidden" value="1" id="ped_id">
+                <div id="conten">
+                    <div class="usuario">
+                        <div class="form-user-header">
+                            <h2>Pedido</h2>
+                        </div>
+                        <div class="section-grid">
+                            <div class="col-x2">
+                                <div class="form-group">
+                                    <img src="../icons/profilex200.png" alt="" id="iconPersona">
+                                </div>
+                                <div class="status-internal">
+                                    <div id="status" class="status">Pendiente</div>
+                                </div>
+                            </div>
+                            <div class="col-x2-person">
+                                <div class="form-group"></div>
+                                <div class="option-right">
+                                    <label>Mesa:</label>
+                                    <select name="tipo_filtro" id="tipo_filtro" class="select"
+                                        onchange="filtroPersona();">
+                                        <option value="0">1</option>
+                                        <option value="1">2</option>
+                                        <option value="2">3</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Cliente:</label>
+                                    <select name="tipo_filtro" id="tipo_filtro" class="select"
+                                        onchange="filtroPersona();">
+                                        <option value="0">Visitante</option>
+                                        <option value="1">Buscar...</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-body">
+                            <div class="form-group">
+                                <label>Detalle pedido:</label>
+                                <table class="tabla-carta">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>Id</th>
+                                            <th>Artículo</th>
+                                            <th>Cantidad</th>
+                                            <th>Val. Unitario</th>
+                                            <th>Sub. Total</th>
+                                            <th>Opciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="listaDetPedido">
+                                        <tr>
+                                            <td>
+                                                <input type="radio" id="ped_DetPed" name="grupoDetPedido"
+                                                    onclick="habilitarOpciones(1);">
+                                            </td>
+                                            <td>1</td>
+                                            <td>Producto 1</td>
+                                            <td>2</td>
+                                            <td>$ 16.000</td>
+                                            <td>$ 32.000</td>
+                                            <td>
+                                                <a href="#openModal" onclick="verModalDetPedido('4040', '1');"
+                                                    class="ver not-active" id="btn_ver1" name="btn"><img class="icon"
+                                                        src="../icons/view.png" alt=""></a>
+                                                <a href="#openModal" onclick="verModalDetPedido('2020', '1');"
+                                                    class="editar not-active" id="btn_editar1" name="btn"><img
+                                                        class="icon" src="../icons/edit.png" alt=""></a>
+                                                <a href="#openModal" onclick="verModalDetPedido('3030', '1');"
+                                                    class="eliminar not-active" id="btn_eliminar1" name="btn"><img
+                                                        class="icon" src="../icons/delete.png" alt=""></a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <br>
+                            <div class="form-group">
+                                <label>Observaciones:</label>
+                                <textarea cols="40" name="detPedObservaciones" spellcheck="true" id="pedObservaciones"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div id="openModal" class="modalDialog">
+                <form id="frm_detPed" name="frm_detPed">
+                    <input type="hidden" value="1" id="idOp">
+                    <input type="hidden" value="1" id="detPed_id">
+                    <div class="modal-header">
+                        <a href="#close" id="closeModal" title="Close" class="close">X</a>
+                        <h2 id="detPed_titulo">Titulo</h2>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="frm_detPed">Nombre:</label>
+                            <input type="text" id="auxInputPrimary" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="frm_detPed">Descripción:</label>
+                            <textarea cols="40" name="auxDescripcion" spellcheck="true" id="auxDescripcion"></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="button" value="btn_auxPersona" id="btn_auxPersona">
+                    </div>
+                </form>
+            </div>
+            <!--FIN CONTENIDO-->
+        </div>
+    </div>
+
+    <script>
+        const btn = document.querySelector('#menu-btn');
+        const menu = document.querySelector('#sidemenu');
+        btn.addEventListener('click', e => {
+            menu.classList.toggle("menu-expanded");
+            menu.classList.toggle("menu-collapsed");
+
+            document.querySelector('body').classList.toggle('body-expanded');
+            document.querySelector('body').classList.toggle('body-collapsed');
+        });
+    </script>
+    <script src="../resources/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="../AJAX/controllerAJX.js"></script>
+    <script type="text/javascript" src="../js/usuarios.js"></script>
+    <script type="text/javascript" src="../js/general.js"></script>
+    <script type="text/javascript" src="../js/carta.js"></script>
+    <script type="text/javascript" src="../js/tipo.js"></script>
+    <script type="text/javascript" src="../js/persona.js"></script>
+    <script type="text/javascript" src="../js/telefono.js"></script>
+    <script type="text/javascript" src="../js/direccion.js"></script>
+    <script type="text/javascript" src="../js/pedido.js"></script>
+    <script type="text/javascript" src="../js/detallePedido.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,139 @@
+<link rel="stylesheet" href="../css/style.css">
+<div id="conten">
+    <div class="usuario">
+        <div class="form-user-header">
+            <h2>Carta</h2>
+        </div>
+        <div class="options">
+            <div class="col-x1">
+                <label>Categoría:</label>
+                <select name="categoria" id="categoria" class="select">
+                    <option value="1">Comidas</option>
+                    <option value="2">Bebidas</option>
+                </select>
+            </div>
+            <div class="col-x2">
+                <label>Filtrar:</label>
+                <input type="text" id="filtrarCarta">
+            </div>
+            <a href="#openModal" class="add" id="add" onclick="verModalCarta('1010', '0');">+ Nuevo</a>
+        </div>
+
+        <div class="form-body">
+            <table class="tabla-carta">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Id</th>
+                        <th>Nombre</th>
+                        <th>Valor</th>
+                        <th>Descripción</th>
+                        <th>Opciones</th>
+                    </tr>
+                </thead>
+                <tbody id="listaProductos">
+                    <!--<tr>
+                        <td><input type="radio" id="car_id1" name="grupoCarta" onclick="habilitarOpciones(1);"></td>
+                        <td>1</td>
+                        <td>Papas</td>
+                        <td>$ 5.000,00</td>
+                        <td>Contiene...</td>
+                        <td>
+                            <a href="#openModal" onclick="verModalCarta('4040', '1');" class="ver not-active" id="btn_ver1" name="btn"><img class="icon" src="../icons/view.png" alt=""></a>
+                            <a href="#openModal" onclick="verModalCarta('2020', '1');" class="editar not-active" id="btn_editar1" name="btn"><img class="icon" src="../icons/edit.png" alt=""></a>
+                            <a href="#openModal" onclick="verModalCarta('3030', '1');" class="eliminar not-active" id="btn_eliminar1" name="btn"><img class="icon" src="../icons/delete.png" alt=""></a>
+                        </td>
+                    </tr>-->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div id="openModal" class="modalDialog">
+    <form id="frm_carta" name="frm_carta">
+        <input type="hidden" value="1" id="idOp">
+        <input type="hidden" value="1" id="car_id">
+        <div class="modal-header">
+            <a href="#close" id="closeModal" title="Close" class="close">X</a>
+            <h2 id="car_titulo">Titulo</h2>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+                <label for="frm_carta">Nombre:</label>
+                <input type="text" id="nomProducto" required>
+            </div>
+            <div class="form-group">
+                <label for="frm_carta">Valor:</label>
+                <input type="text" id="valProducto" required>
+            </div>
+            <div class="form-group">
+                <label for="frm_carta">Descripción:</label>
+                <textarea cols="40" name="objeto3" spellcheck="true" id="descProducto"></textarea>
+            </div>
+            <div class="form-group">
+                <label>Categoría:</label>
+                <select name="catProducto" id="catProducto" class="select">
+                    <option value="1">Seleccione</option>
+                    <option value="2">Bebidas</option>
+                    <option value="3">Comidas</option>
+                </select>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <input type="button" value="carta" id="btn_carta">
+        </div>
+    </form>
+</div>
+<script src="../resources/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="../AJAX/controllerAJX.js"></script>
+<script type="text/javascript" src="../js/usuarios.js"></script>
+<script type="text/javascript" src="../js/general.js"></script>
+
+
+
+<div class="usuario">
+    
+    <div class="options">
+        <div class="col-x1"><label>Categoría:</label><select name="categoria" id="categoria" class="select"
+                onchange="filtrarPorNombreCarta();">
+                <option value="0">Todas</option>
+                <option value="1">Comidas</option>
+                <option value="2">Bebidas calientes</option>
+                <option value="3">Bebidas frias </option>
+                <option value="4">Postres</option>
+            </select></div>
+        <div class="col-x2"><label>Filtrar:</label><input type="text" id="filtrarCarta"
+                oninput="filtrarPorNombreCarta();"></div><a href="#openModal" class="add" id="add"
+            onclick="verModalCarta('1010', '0');">+ Nuevo</a>
+    </div>
+    <div class="form-body">
+        <table class="tabla-carta">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    <th>Valor</th>
+                    <th>Descripción</th>
+                    <th>Opciones</th>
+                </tr>
+            </thead>
+            <tbody id="listaProductos">
+                <tr>
+                    <td><input type="radio" id="car_id1" name="grupoCarta" onclick="habilitarOpciones(1);"></td>
+                    <td>1</td>
+                    <td>Producto 1</td>
+                    <td>$ 10000</td>
+                    <td>Ninguna...</td>
+                    <td><a href="#openModal" onclick="verModalCarta('4040', '1');" class="ver not-active" id="btn_ver1"
+                            name="btn"><img class="icon" src="../icons/view.png" alt=""></a><a href="#openModal"
+                            onclick="verModalCarta('2020', '1');" class="editar not-active" id="btn_editar1"
+                            name="btn"><img class="icon" src="../icons/edit.png" alt=""></a><a href="#openModal"
+                            onclick="verModalCarta('3030', '1');" class="eliminar not-active" id="btn_eliminar1"
+                            name="btn"><img class="icon" src="../icons/delete.png" alt=""></a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
